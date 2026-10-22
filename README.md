@@ -7,7 +7,9 @@ Plain HTML, CSS and a little JavaScript. No build step and no dependencies.
 ## Structure
 
 ```
-index.html          The whole page
+index.html          Homepage: intro, featured projects, about, expertise, experience, education
+about.html          Full "About me"
+work/*.html         One case study per project (FLYR, Carbon, Netguru, Patricia Business, Glover)
 styles/tokens.css   Design tokens: primitives, then semantic roles (light and dark)
 styles/main.css     Components and layout, using semantic tokens only
 scripts/main.js     Theme toggle, sticky header, scroll reveal
@@ -29,6 +31,6 @@ npx serve .
 
 ## Editing
 
-- Copy lives in `index.html`, one `<section>` per part of the page.
+- Copy lives in the HTML files, one `<section>` per part of each page.
+- The header, footer and contact block are repeated on every page, so change all of them together.
 - To change the look, edit `styles/tokens.css`. Components pick up the change automatically.
-- The "Open to new roles" pill is in the hero. Remove it when it no longer applies.
