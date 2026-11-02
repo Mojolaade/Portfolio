@@ -9,7 +9,7 @@ Plain HTML, CSS and a little JavaScript. No build step and no dependencies.
 ```
 index.html          Homepage: intro, featured projects, about, expertise, experience, education
 about.html          Full "About me"
-work/*.html         One case study per project (FLYR, Carbon, Netguru, Patricia Business, Glover, Hank)
+work/*.html         One case study per project (FLYR, Carbon, Netguru, Patricia Business, Patricia web app, Glover, Hank)
 images/             WebP images: about/ portrait, work/<project>/ covers and case-study figures
 styles/tokens.css   Design tokens: primitives, then semantic roles (light and dark)
 styles/main.css     Components and layout, using semantic tokens only
