@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="styles/tokens.css" />
     <link rel="stylesheet" href="styles/main.css" />
     <script src="scripts/main.js" defer></script>
+    <script src="scripts/portrait.js" defer></script>
   </head>
 
   <body>
@@ -69,9 +70,23 @@
                 <a class="button button-secondary" href="about.html">More about me</a>
               </div>
             </div>
-            <figure class="hero-figure">
-              <img src="images/about/portrait.webp" alt="Portrait of Mojolaade Adegbite" width="768" height="1376" fetchpriority="high" decoding="async" />
-            </figure>
+            <div class="hero-visual">
+              <figure class="hero-figure">
+                <img src="images/about/portrait.webp" alt="Portrait of Mojolaade Adegbite" width="768" height="1376" fetchpriority="high" decoding="async" />
+              </figure>
+              <!-- Shown by scripts/portrait.js when the folding portrait is running -->
+              <div class="hand-ui" hidden>
+                <button class="hand-toggle" type="button" aria-pressed="false">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 11V6a2 2 0 0 0-4 0v5M14 10V4a2 2 0 0 0-4 0v6M10 10.5V6a2 2 0 0 0-4 0v8" /><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.9-6-2.4l-3.6-3.6a2 2 0 0 1 2.8-2.8L7 15" /></svg>
+                  <span class="hand-toggle-label">Try hand control</span>
+                </button>
+                <p class="hand-hint" aria-live="polite">Scroll, or press and hold the portrait, to fold it.</p>
+                <div class="hand-cam" hidden>
+                  <video playsinline muted aria-hidden="true"></video>
+                  <canvas aria-hidden="true"></canvas>
+                </div>
+              </div>
+            </div>
           </div>
           <p class="hero-bar">
             <span><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z" /></svg>Kraków, Poland</span>
@@ -316,6 +331,20 @@
         </div>
       </section>
     </main>
+
+    <dialog class="hand-consent" aria-labelledby="consent-title">
+      <form method="dialog">
+        <h2 id="consent-title">Fold the portrait with your hand?</h2>
+        <p>
+          This uses your camera to follow your hand. The video stays on your device: it's
+          processed in your browser and never uploaded or saved. You can turn it off at any time.
+        </p>
+        <div class="actions">
+          <button class="button button-secondary" value="cancel">Not now</button>
+          <button class="button button-primary" value="ok">Turn on camera</button>
+        </div>
+      </form>
+    </dialog>
 
     <footer class="site-footer">
       <div class="container">
