@@ -303,6 +303,8 @@ section {
   object-fit: cover;
   object-position: center 20%;
   border-radius: var(--radius-lg);
+  /* Mirror so the portrait faces into the page, towards the headline */
+  transform: scaleX(-1);
   /* Fade the bottom edge into the page */
   -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent);
   mask-image: linear-gradient(to bottom, #000 70%, transparent);
