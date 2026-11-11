@@ -1,11 +1,11 @@
-// Theme: follows the system until the visitor picks one, then remembers it.
+// Theme: dark by default until the visitor picks one, then remembers it.
 const root = document.documentElement;
 const toggle = document.querySelector(".theme-toggle");
 
 function currentTheme() {
   return (
     root.dataset.theme ||
-    (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
+    "dark"
   );
 }
 

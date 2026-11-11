@@ -2,39 +2,47 @@
   Design tokens.
   Primitives hold raw values; semantic tokens map them to roles.
   Components only use semantic tokens, so a theme is a remap, not a rewrite.
+
+  Dark is the default theme. Light applies only when the visitor picks it.
 */
 
 :root {
   /* Primitives: colour */
-  --clay-50: #fbf7f3;
-  --clay-100: #f4ece4;
-  --clay-200: #e6d6c8;
-  --clay-600: #8a5a3c;
-  --clay-700: #6e452c;
-  --ink-900: #1c1917;
-  --ink-700: #44403c;
+  --black-950: #070606;
+  --black-900: #0f0d0c;
+  --black-850: #161413;
+  --black-700: #2a2624;
+  --black-600: #3a3532;
+  --bone-50: #f4efe8;
+  --bone-200: #d9d3ca;
+  --bone-400: #9b948a;
+  --bone-500: #847d74;
+  --ember-300: #f0956a;
+  --ember-400: #e6784a;
+  --ember-700: #a8471f;
+  --ember-800: #8a3815;
+  --paper-50: #f7f4ef;
+  --paper-100: #efeae2;
+  --paper-200: #e2dbd0;
+  --ink-900: #141110;
+  --ink-700: #3f3a36;
   --ink-500: #6b645e;
-  --night-950: #141110;
-  --night-900: #1d1917;
-  --night-800: #2a2522;
-  --night-600: #4a423d;
-  --sand-100: #f2ebe4;
-  --sand-300: #c9bdb2;
-  --sand-500: #a39488;
-  --peach-300: #e8b08c;
-  --peach-400: #dc9a70;
 
   /* Primitives: type */
-  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-display: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 
+  --text-2xs: 0.6875rem;
   --text-xs: 0.8125rem;
   --text-sm: 0.9375rem;
   --text-md: 1.0625rem;
   --text-lg: 1.25rem;
-  --text-xl: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
-  --text-2xl: clamp(2rem, 1.4rem + 2.6vw, 3.25rem);
-  --text-3xl: clamp(2.75rem, 1.6rem + 5vw, 5.5rem);
+  --text-xl: clamp(1.375rem, 1.15rem + 0.9vw, 1.75rem);
+  --text-2xl: clamp(1.875rem, 1.4rem + 2vw, 2.75rem);
+  --text-3xl: clamp(2.5rem, 1.6rem + 3.8vw, 4.5rem);
+
+  --tracking-tight: -0.035em;
+  --tracking-wide: 0.16em;
 
   /* Primitives: space (4px base) */
   --space-1: 0.25rem;
@@ -46,62 +54,55 @@
   --space-7: 3rem;
   --space-8: 4rem;
   --space-9: 6rem;
+  --space-10: 8rem;
 
-  --radius-sm: 0.5rem;
+  --radius-sm: 0.625rem;
   --radius-md: 1rem;
+  --radius-lg: 1.25rem;
   --radius-pill: 999px;
 
   --duration-fast: 150ms;
   --duration-base: 300ms;
   --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
 
-  /* Semantic: light */
-  --color-bg: var(--clay-50);
+  /* Semantic: dark (default) */
+  --color-bg: var(--black-950);
+  --color-surface: var(--black-900);
+  --color-surface-muted: var(--black-850);
+  --color-border: rgb(244 239 232 / 0.1);
+  --color-border-strong: rgb(244 239 232 / 0.22);
+  --color-text: var(--bone-50);
+  --color-text-muted: var(--bone-200);
+  --color-text-subtle: var(--bone-400);
+  --color-accent: var(--ember-300);
+  --color-accent-hover: var(--ember-400);
+  --color-on-accent: var(--black-950);
+  --color-button: var(--bone-50);
+  --color-on-button: var(--black-950);
+  --color-focus: var(--ember-300);
+  --color-glow: rgb(230 120 74 / 0.32);
+
+  --layout-max: 76rem;
+  --layout-gutter: clamp(1rem, 4vw, 2.5rem);
+
+  color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+  --color-bg: var(--paper-50);
   --color-surface: #ffffff;
-  --color-surface-muted: var(--clay-100);
-  --color-border: var(--clay-200);
+  --color-surface-muted: var(--paper-100);
+  --color-border: rgb(20 17 16 / 0.1);
+  --color-border-strong: rgb(20 17 16 / 0.22);
   --color-text: var(--ink-900);
   --color-text-muted: var(--ink-700);
   --color-text-subtle: var(--ink-500);
-  --color-accent: var(--clay-700);
-  --color-accent-hover: var(--clay-600);
+  --color-accent: var(--ember-700);
+  --color-accent-hover: var(--ember-800);
   --color-on-accent: #ffffff;
-  --color-focus: var(--clay-700);
-
-  --layout-max: 72rem;
-  --layout-gutter: clamp(1rem, 4vw, 2.5rem);
-
+  --color-button: var(--ink-900);
+  --color-on-button: var(--paper-50);
+  --color-focus: var(--ember-700);
+  --color-glow: rgb(230 120 74 / 0.22);
   color-scheme: light;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --color-bg: var(--night-950);
-    --color-surface: var(--night-900);
-    --color-surface-muted: var(--night-800);
-    --color-border: var(--night-600);
-    --color-text: var(--sand-100);
-    --color-text-muted: var(--sand-300);
-    --color-text-subtle: var(--sand-500);
-    --color-accent: var(--peach-300);
-    --color-accent-hover: var(--peach-400);
-    --color-on-accent: var(--night-950);
-    --color-focus: var(--peach-300);
-    color-scheme: dark;
-  }
-}
-
-:root[data-theme="dark"] {
-  --color-bg: var(--night-950);
-  --color-surface: var(--night-900);
-  --color-surface-muted: var(--night-800);
-  --color-border: var(--night-600);
-  --color-text: var(--sand-100);
-  --color-text-muted: var(--sand-300);
-  --color-text-subtle: var(--sand-500);
-  --color-accent: var(--peach-300);
-  --color-accent-hover: var(--peach-400);
-  --color-on-accent: var(--night-950);
-  --color-focus: var(--peach-300);
-  color-scheme: dark;
 }
