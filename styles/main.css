@@ -784,6 +784,11 @@ section {
   max-height: 48rem;
 }
 
+/* Transparent diagrams: white margin so the artwork doesn't touch the frame */
+.figure img.img-padded {
+  padding: 40px;
+}
+
 .figure figcaption {
   margin-top: var(--space-2);
   font-size: var(--text-sm);
