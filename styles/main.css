@@ -755,6 +755,7 @@ section {
   display: block;
   width: 100%;
   height: auto;
+  background-color: var(--color-image-bg);
 }
 
 .case:not(.case-featured) .case-media {
